@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework2</title>
+</head>
+<style>
+    .div {
+        color: white;
+        font-size: 80px;
+        font-family: serif;
+        text-align: center;
+        flex: auto;
+        background-color: blue;
+        background-image: linear-gradient(rgb(30, 0, 128), rgb(0, 183, 255));
+    }
+
+    .p1 {
+        color: white;
+        font-size: 30px;
+        font-family: serif;
+    }
+
+    .p2 {
+        color: white;
+        font-size: 30px;
+        font-family: serif;
+
+    }
+
+    input[type=text],
+    select,
+    textarea {
+        width: 50%;
+        padding: 12px;
+        border: 1px solid white;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical
+    }
+
+    input[type=submit] {
+        font-size: larger;
+        background-color: blue;
+        color: white;
+        padding: 16px 250px;
+        border: black;
+        border-rblack 4px;
+        cursor: progress;
+    }
+</style>
+
+<body>
+    <div class="div">
+        <p>
+            Contact Us
+        </p>
+        <p class="p1">
+            Got a question? We`d love to hear from you.Send us a message
+            <br>
+            and we`ll respond as soon as possible
+        </p>
+        <p class="p2">
+            <label for="Name">Name *</label>
+            <br>
+            <input type="text" id="Name" name="Name">
+            <br>
+            <label for="Email Address">Email Address *</label>
+            <br>
+            <input type="text" id="Email Address" name="Email Address">
+            <br>
+            <label for="subject">Message</label>
+            <br>
+            <textarea id="Message" name="Message" style="height:200px"></textarea>
+            <br>
+            <input type="submit" value="Send Message">
+        </p>
+    </div>
+</body>
+
+</html>

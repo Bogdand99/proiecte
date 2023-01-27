@@ -1,0 +1,93 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myController', function ($scope) {
+
+            var globalHeight;
+            var globalBMI;
+
+            $scope.weight = 130;
+            $scope.feet = 5;
+            $scope.inches = 9;
+            $scope.convertHeight = function (feet, inches) {
+                var convertedHeight = (feet * 12) + inches;
+                $scope.globalHeight = convertedHeight;
+                return convertedHeight;
+            };
+            $scope.calcBMI = function (globalHeight, weight) {
+                var bmi = ((weight / Math.pow(globalHeight, 2)) * 703),
+                    globalBMI = bmi;
+                $scope.test = globalBMI;
+                return bmi.toFixed(2);
+            };
+            $scope.globalBMI = globalBMI;
+           $scope.categorize = function (globalHeight, weight) {
+                var bmi = ((weight / Math.pow(globalHeight, 2)) * 703);
+                var category;
+                if (bmi > 30) {
+                    category = "obese";
+                } else if (bmi > 25 && bmi < 29.99) {
+                    category = "overweight";
+                } else if (bmi > 18.5 && bmi < 24.99) {
+                    category = "healthy";
+                } else if (bmi < 18.5) {
+                    category = "underweight";
+                };
+                return category;
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid" ng-app="myApp">
+        <div class="jumbotron" ng-controller="myController">
+
+            <h1>Welcome to the BMI Calculator</h1>
+            <div>
+
+
+                <p ng-model>Weight: {{weight}}</p>
+                <input class="dropdown" type="number" min="0" ng-model="weight">
+                <br />
+                <br />
+                <h3>Height</h3>
+                <p1 ng-model>Feet: </p1>
+                <input class="dropdown" type="number" min="0" max="8" ng-model="feet">
+                <br />
+                <br />
+                <p1 ng-model>Inches: </p1>
+                <input class="dropdown" type="number" min="0" max="11" ng-model="inches">
+                <br />
+                <br />
+                <p ng-model>Height in Inches: {{convertHeight(feet, inches)}}</p>
+                </input>
+
+                <h1>Your BMI is {{calcBMI(globalHeight,weight)}}</h1>
+
+
+                <h3>You are {{categorize(globalHeight, weight)}}</h3>
+
+                <div>{{category}}</div>
+
+
+                <div id="displayDiv"></div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
